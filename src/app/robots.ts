@@ -1,3 +1,4 @@
+import { DATA } from "@/data/resume";
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -6,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.ahirrr.in/sitemap.xml",
+    sitemap: `${DATA.url}/sitemap.xml`,
   };
 }

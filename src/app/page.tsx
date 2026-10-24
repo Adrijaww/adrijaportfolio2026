@@ -4,50 +4,23 @@ import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
-import GallerySection from "@/components/section/gallery-section";
-import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import GitHubActivitySection from "@/components/section/github-activity-section";
-import LeetCodeStatsSection from "@/components/section/leetcode-stats-section";
 import { ArrowUpRight } from "lucide-react";
-import QuoteSection from "@/components/section/quote-section";
 import type { Metadata } from "next";
 
-const HOME_TITLE = "Ahir Sarkar | Web3 Developer & CAD Designer";
-const HOME_DESCRIPTION =
-  "Ahir Sarkar is a Web3 developer and CAD designer from Kolkata, building blockchain products, open-source projects, and engineering solutions.";
-
 export const metadata: Metadata = {
-  title: HOME_TITLE,
-  description: HOME_DESCRIPTION,
-  alternates: { canonical: "https://www.ahirrr.in/" },
-  openGraph: {
-    title: HOME_TITLE,
-    description: HOME_DESCRIPTION,
-    url: "https://www.ahirrr.in/",
-    siteName: "Ahir Sarkar",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ahir Sarkar | Web3 Developer and CAD Designer",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: HOME_TITLE,
-    description: HOME_DESCRIPTION,
-    images: ["/og-image.png"],
-  },
+  title: { absolute: `${DATA.name} | ${DATA.role}` },
+  description: DATA.description,
+  alternates: { canonical: "/" },
+  openGraph: { title: DATA.name, description: DATA.description, siteName: DATA.name, type: "website" },
+  twitter: { card: "summary_large_image", title: DATA.name, description: DATA.description },
 };
-
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -63,18 +36,18 @@ export default function Page() {
                   delay={BLUR_FADE_DELAY}
                   className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl"
                   yOffset={8}
-                  text="Ahir Sarkar — Web3 Developer and CAD Designer"
+                  text={DATA.name}
                 />
               </h1>
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                 delay={BLUR_FADE_DELAY}
-                text="CAD Designer × Web3 Builder"
+                text={DATA.role}
               />
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                 delay={BLUR_FADE_DELAY}
-                text="I enjoy building products that combine thoughtful design with decentralized technologies. From hackathons to open-source projects, I'm always learning, building, and occasionally yapping on X."
+                text={DATA.introduction}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
@@ -129,7 +102,7 @@ export default function Page() {
           <div className="flex flex-col gap-8">
             {DATA.education.map((education, index) => (
               <BlurFade
-                key={education.school}
+                key={education.degree}
                 delay={BLUR_FADE_DELAY * 8 + index * 0.05}
               >
                 <Link
@@ -167,7 +140,7 @@ export default function Page() {
                   </div>
                   <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
                     <span>
-                      {education.start} - {education.end}
+                      {education.start === education.end ? education.end : `${education.start} - ${education.end}`}
                     </span>
                   </div>
                 </Link>
@@ -191,9 +164,10 @@ export default function Page() {
                   {skills.map((skill, id) => (
                     <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
                       <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                        {("icon" in skill && typeof skill.icon === "function") && (
-                          // @ts-ignore
-                          <skill.icon className="size-4 rounded overflow-hidden object-contain" />
+                        {typeof skill.icon === "string" ? (
+                          <Image src={skill.icon} alt="" width={16} height={16} className="size-4 shrink-0 object-contain" />
+                        ) : (
+                          <skill.icon className="size-4 shrink-0" aria-hidden="true" />
                         )}
                         <span className="text-foreground text-sm font-medium">{skill.name}</span>
                       </div>
@@ -208,41 +182,42 @@ export default function Page() {
       <BlurFade delay={BLUR_FADE_DELAY * 11}>
         <ProjectsSection />
       </BlurFade>
-      <section id="github-activity">
-        <BlurFade delay={BLUR_FADE_DELAY * 12}>
-          <GitHubActivitySection />
-        </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 12}>
+        <GitHubActivitySection />
+      </BlurFade>
+      <section id="leadership" className="flex flex-col gap-6">
+        <h2 className="text-xl font-bold">Leadership &amp; Extracurricular</h2>
+        {DATA.leadership.map((item) => (
+          <div key={item.organization} className="space-y-2">
+            <div className="flex flex-wrap justify-between gap-2">
+              <h3 className="font-semibold">{item.title}</h3>
+              <span className="text-xs text-muted-foreground">{item.dates}</span>
+            </div>
+            <p className="text-sm text-muted-foreground">{item.organization}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+          </div>
+        ))}
       </section>
-      <section id="leetcode-stats">
-        <BlurFade delay={BLUR_FADE_DELAY * 12.5}>
-          <LeetCodeStatsSection />
-        </BlurFade>
-      </section>
-      <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
-          <HackathonsSection />
-        </BlurFade>
+      <section id="certifications" className="flex flex-col gap-6">
+        <h2 className="text-xl font-bold">Certifications &amp; Arts</h2>
+        {DATA.certifications.map((item) => (
+          <div key={item.title} className="space-y-2">
+            <h3 className="font-semibold">{item.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+          </div>
+        ))}
       </section>
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <ContactSection />
         </BlurFade>
       </section>
-      <BlurFade delay={BLUR_FADE_DELAY * 17}>
-        <GallerySection />
-      </BlurFade>
-      <section id="quote">
-        <BlurFade delay={BLUR_FADE_DELAY * 18}>
-          <QuoteSection />
-        </BlurFade>
-      </section>
-
       {/* Footer Credits */}
       <footer className="text-center text-xs text-muted-foreground/55 space-y-1 select-none mt-16 pb-8">
         <p>
-          Design &amp; Modified by <span className="font-semibold text-muted-foreground/80">Ahir</span>
+          {DATA.name}
         </p>
-        <p>&copy; 2026. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()}. All rights reserved.</p>
       </footer>
     </main>
   );

@@ -16,16 +16,6 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "ahirrr.in" }],
-        destination: "https://www.ahirrr.in/:path*",
-        permanent: true,
-      },
-    ];
-  },
   async headers() {
     return [
       {

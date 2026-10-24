@@ -30,9 +30,9 @@ export async function generateMetadata({
     description: project.description,
     alternates: { canonical: `/projects/${slug}` },
     openGraph: {
-      title: `${project.title} Project | Ahir Sarkar`,
+      title: `${project.title} Project | ${DATA.name}`,
       description: project.description,
-      url: `https://www.ahirrr.in/projects/${slug}`,
+      url: `${DATA.url}/projects/${slug}`,
       type: "article",
       images: project.image ? [{ url: project.image, alt: `Screenshot of ${project.title}` }] : undefined,
     },
@@ -84,13 +84,6 @@ export default async function ProjectPage({
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold">My contribution</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Built and documented this project as part of Ahir Sarkar&apos;s portfolio. The linked repository contains the project&apos;s implementation and source details.
-          </p>
-        </section>
-
-        <section className="flex flex-col gap-3">
           <h2 className="text-xl font-bold">Technologies used</h2>
           <ul className="flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
             {project.technologies.map((technology) => (
@@ -101,7 +94,7 @@ export default async function ProjectPage({
           </ul>
         </section>
 
-        <section className="flex flex-col gap-3">
+        {project.links.length > 0 && <section className="flex flex-col gap-3">
           <h2 className="text-xl font-bold">Project links</h2>
           <div className="flex flex-wrap gap-4 text-sm">
             <a href={githubLink} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
@@ -113,7 +106,7 @@ export default async function ProjectPage({
               </a>
             )}
           </div>
-        </section>
+        </section>}
       </article>
     </main>
   );

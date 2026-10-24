@@ -1,356 +1,65 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon } from "lucide-react";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
+import { HomeIcon, Database, Smartphone, Workflow, Boxes, Layers, Users, TestTubeDiagonal, Sparkles, BrainCircuit, ChartNoAxesCombined } from "lucide-react";
+import { Java } from "@/components/ui/svgs/java";
+import { Python } from "@/components/ui/svgs/python";
 import { Typescript } from "@/components/ui/svgs/typescript";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
-import { Golang } from "@/components/ui/svgs/golang";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
-import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
-import { Csharp } from "@/components/ui/svgs/csharp";
-import {
-  JavaScriptIcon,
-  HTML5Icon,
-  CSS3Icon,
-  ExpressIcon,
-  SQLiteIcon,
-  RustIcon,
-  CppIcon,
-  GitIcon,
-  LinuxIcon,
-  VSCodeIcon,
-  PostmanIcon,
-  CanvaIcon,
-  SolidityIcon,
-  AutoCADIcon,
-  RESTAPIsIcon,
-  SorobanIcon,
-  CompactIcon,
-  SOLIDWORKSIcon,
-  Fusion360Icon,
-  AutodeskInventorIcon,
-} from "@/components/ui/svgs/skills-icons";
+import { ReactLight } from "@/components/ui/svgs/reactLight";
+import { CppIcon, JavaScriptIcon, HTML5Icon, CSS3Icon, ExpressIcon, RESTAPIsIcon, GitIcon, VSCodeIcon, PostmanIcon } from "@/components/ui/svgs/skills-icons";
 
 export const DATA = {
-  name: "Ahir Sarkar",
-  initials: "AS",
-  url: "https://www.ahirrr.in/",
-  location: "Kolkata, India",
+  name: "Adrija Chatterjee",
+  initials: "AC",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  location: "Kolkata, West Bengal",
   locationLink: "https://www.google.com/maps/place/Kolkata",
-  description: "Ahir Sarkar is a Web3 developer and CAD designer from Kolkata, building blockchain products, open-source projects, and engineering solutions.",
-  summary:
-    "I'm Ahir, a Computer Science student at _IEM Kolkata_ with a passion for _building Web3 products_ and turning ideas into reality. My journey began with _CAD design_ and naturally evolved into _blockchain development_, where I enjoy creating real-world projects through _hackathons_ and _open-source contributions_. Beyond building, I'm a _Stellar Ambassador_, _Midnight Ambassador_, and actively _organize hackathons, workshops, and developer communities_ to help others learn, collaborate, and grow.",
-  avatarUrl: "/me.png",
+  role: "Full-Stack Developer & Computer Science Undergraduate",
+  description: "Adrija Chatterjee is a Computer Science Engineering undergraduate at IEM Kolkata with experience in full-stack web development, REST APIs, and AI-integrated applications.",
+  introduction: "I build user-centric web applications, REST APIs, and AI-integrated tools. I'm seeking software engineering, product development, and backend engineering opportunities.",
+  summary: "I'm Adrija, a _Computer Science and Engineering undergraduate at IEM Kolkata_. I enjoy building scalable, user-centric systems with full-stack web development, REST APIs, and AI integration. As a _Product Engineering Intern at IEM Research Foundation (Chrysalis)_, I shipped product features in an Agile team and translated requirements into working prototypes. A _tech immersion program at UNSW, Sydney_ broadened my experience in cybersecurity, neural networks, web development, virtual reality, and AI systems. Beyond technology, I lead delegate affairs, practice Kathak, and pursue fine arts.",
+  avatarUrl: "/avatar.svg",
   skills: {
-    "Frontend": [
-      { name: "React", icon: ReactLight },
-      { name: "Next.js", icon: NextjsIconDark },
-      { name: "TypeScript", icon: Typescript },
-      { name: "JavaScript", icon: JavaScriptIcon },
-      { name: "Tailwind CSS", icon: Icons.tailwindcss },
-      { name: "HTML5", icon: HTML5Icon },
-      { name: "CSS3", icon: CSS3Icon },
-    ],
-    "Backend": [
-      { name: "Node.js", icon: Nodejs },
-      { name: "Express.js", icon: ExpressIcon },
-      { name: "PostgreSQL", icon: Postgresql },
-      { name: "SQLite", icon: SQLiteIcon },
-      { name: "REST APIs", icon: RESTAPIsIcon },
-    ],
-    "Blockchain": [
-      { name: "Soroban", icon: SorobanIcon },
-      { name: "Solidity", icon: SolidityIcon },
-      { name: "Compact", icon: CompactIcon },
-      { name: "Rust", icon: RustIcon },
-    ],
-    "Languages": [
-      { name: "C++", icon: CppIcon },
-      { name: "Python", icon: Python },
-      { name: "Java", icon: Java },
-    ],
-    "CAD & Design": [
-      { name: "Fusion 360", icon: Fusion360Icon },
-      { name: "SOLIDWORKS", icon: SOLIDWORKSIcon },
-      { name: "AutoCAD", icon: AutoCADIcon },
-      { name: "Autodesk Inventor", icon: AutodeskInventorIcon },
-    ],
-    "Tools": [
-      { name: "Git", icon: GitIcon },
-      { name: "GitHub", icon: Icons.github },
-      { name: "Docker", icon: Docker },
-      { name: "Postman", icon: PostmanIcon },
-      { name: "Notion", icon: Icons.notion },
-      { name: "Canva", icon: CanvaIcon },
-    ],
+    Languages: [{ name: "C", icon: "/skills/c.svg" }, { name: "C++", icon: CppIcon }, { name: "Java", icon: Java }, { name: "Python", icon: Python }, { name: "JavaScript", icon: JavaScriptIcon }, { name: "SQL", icon: Database }, { name: "TypeScript (basic)", icon: Typescript }],
+    "Web Development": [{ name: "HTML5", icon: HTML5Icon }, { name: "CSS3", icon: CSS3Icon }, { name: "React.js", icon: ReactLight }, { name: "Node.js", icon: Nodejs }, { name: "Express.js", icon: ExpressIcon }, { name: "REST APIs", icon: RESTAPIsIcon }, { name: "Responsive Design", icon: Smartphone }],
+    Databases: [{ name: "MongoDB", icon: "/skills/mongodb.svg" }, { name: "MySQL", icon: "/skills/mysql.svg" }, { name: "PostgreSQL (basic)", icon: Postgresql }],
+    "Tools & Platforms": [{ name: "Git", icon: GitIcon }, { name: "GitHub", icon: Icons.github }, { name: "VS Code", icon: VSCodeIcon }, { name: "Replit", icon: "/skills/replit.svg" }, { name: "Render", icon: "/skills/render.svg" }, { name: "Google Cloud Platform", icon: "/skills/googlecloud.svg" }, { name: "Postman", icon: PostmanIcon }],
+    Concepts: [{ name: "Data Structures & Algorithms", icon: Workflow }, { name: "OOP", icon: Boxes }, { name: "MVC Architecture", icon: Layers }, { name: "Agile/Scrum", icon: Users }, { name: "Unit Testing", icon: TestTubeDiagonal }, { name: "Prompt Engineering", icon: Sparkles }],
+    "AI & ML": [{ name: "AI API Integration", icon: RESTAPIsIcon }, { name: "Prompt Engineering", icon: Sparkles }, { name: "Neural Networks (basic)", icon: BrainCircuit }, { name: "Model Evaluation", icon: ChartNoAxesCombined }],
   },
-  navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-  ],
+  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
   contact: {
-    email: "ahirsarkar2022@gmail.com",
-    tel: "+919123846131",
+    email: "adrijachatterjeeiem@gmail.com",
+    tel: "+916289033318",
     social: {
-      GitHub: {
-        name: "GitHub",
-        url: "https://github.com/wolf1276",
-        icon: Icons.github,
-        navbar: true,
-      },
-
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/ahir-sarkar/",
-        icon: Icons.linkedin,
-
-        navbar: true,
-      },
-      X: {
-        name: "X",
-        url: "https://x.com/ahirgrinds",
-        icon: Icons.x,
-
-        navbar: true,
-      },
-      Medium: {
-        name: "Medium",
-        url: "https://medium.com/@ahirsarkar2022",
-        icon: Icons.medium,
-        navbar: true,
-      },
-      email: {
-        name: "Send Email",
-        url: "mailto:ahirsarkar2022@gmail.com",
-        icon: Icons.email,
-
-        navbar: false,
-      },
+      GitHub: { name: "GitHub", url: "https://github.com/Adrijaww", icon: Icons.github, navbar: true },
+      LinkedIn: { name: "LinkedIn", url: "https://www.linkedin.com/in/adrija-chatterjee-346a87321/", icon: Icons.linkedin, navbar: true },
+      X: { name: "X", url: "https://x.com/awdrij44", icon: Icons.x, navbar: true },
+      email: { name: "Send Email", url: "mailto:adrijachatterjeeiem@gmail.com", icon: Icons.email, navbar: true },
     },
   },
-
   work: [
-    {
-      company: "Stellar Development Foundation",
-      href: "https://stellar.org",
-      badges: [],
-      location: "Remote",
-      title: "Stellar Ambassador",
-      logoUrl: "/stellar.png",
-      start: "Present",
-      end: "Present",
-      description:
-        "Helping developers explore, build, and ship on the Stellar network through community initiatives, hackathons, workshops, and educational content.",
-    },
-    {
-      company: "Midnight",
-      href: "https://midnight.network",
-      badges: [],
-      location: "Remote",
-      title: "Midnight Ambassador",
-      logoUrl: "/midnight.png",
-      start: "Present",
-      end: "Present",
-      description:
-        "Supporting the Midnight ecosystem by educating developers, organizing community sessions, and promoting privacy-preserving blockchain technologies.",
-    },
-    {
-      company: "Builder Base",
-      badges: [],
-      location: "Remote",
-      title: "Core Team Member",
-      logoUrl: "/builderbase.png",
-      start: "Present",
-      end: "Present",
-      description:
-        "Contributing to the growth of Builder Base by supporting community initiatives, collaborating with fellow builders, and helping organize developer-focused events and programs.",
-    },
-    {
-      company: "Freelance",
-      badges: [],
-      location: "Remote",
-      title: "CAD Designer",
-      logoUrl: "/solidworks.png",
-      start: "2022",
-      end: "Present",
-      description:
-        "Designing functional 3D models, prototypes, and engineering-focused solutions from concept to production.",
-    },
+    { company: "IEM Research Foundation (Chrysalis)", title: "Product Engineering Intern", logoUrl: "/iem-logo.png", start: "May 2026", end: "Jul 2026", description: "Shipped 3+ product features, reducing user workflow steps by approximately 20%. Collaborated in an Agile team of 6 using JavaScript and REST APIs, reducing bugs by 15%. Translated requirements into technical specifications and prototypes, contributing to 2 milestone releases ahead of schedule. Conducted unit and integration testing to improve feature stability in staging and production." },
+    { company: "University of New South Wales", title: "Study Abroad — Tech Immersion Program", logoUrl: "/unsw-logo.png", start: "May 2025", end: "Jun 2025", description: "Completed an interdisciplinary program in Sydney, Australia covering cybersecurity, neural networks, web development, virtual reality, and AI systems design. Solved 5 real-world case studies and delivered prototypes including a DDoS defense simulation and responsive web application. Studied scalable system design, UX testing, and cybersecurity fundamentals with industry and academic experts." },
   ],
   education: [
-    {
-      school: "Institute of Engineering & Management (IEM), Kolkata",
-      href: "https://iem.edu.in/",
-      degree: "B.Tech in Computer Science & Engineering (AI)",
-      logoUrl: "/iem-logo.png",
-      start: "Jul 2024",
-      end: "Jun 2028",
-      description:
-        "CGPA: 8.20 | Coursework: Web Development, CAD Design, Web3, Data Structures & Algorithms",
-    },
+    { school: "Institute of Engineering & Management, Kolkata", href: "https://iem.edu.in/", degree: "B.Tech — Computer Science and Engineering", logoUrl: "/iem-logo.png", start: "Aug 2024", end: "May 2028", description: "Coursework: Data Structures & Algorithms, OOP, Database Management Systems, Computer Networks, Operating Systems, Web Technologies" },
+    { school: "Auxilium Convent School", href: "#education", degree: "ISC — Class XII", logoUrl: "/auxilium-logo.png", start: "2024", end: "2024", description: "Score: 83.2%" },
+    { school: "Auxilium Convent School", href: "#education", degree: "ICSE — Class X", logoUrl: "/auxilium-logo.png", start: "2022", end: "2022", description: "Score: 90.2%" },
   ],
   projects: [
-    {
-      title: "Voyra",
-      href: "https://github.com/wolf1276/travel",
-      dates: "Couples Travel Planner",
-      active: true,
-      description:
-        "Voyra is a travel planning platform designed for couples to create unforgettable journeys together. Plan trips, save meaningful places with personalized markers, build shared itineraries, and create experiences that strengthen memories and bring people closer.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Node.js",
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/wolf1276/travel",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Website",
-          href: "https://travel-clarion-fry.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/travel-banner.png",
-      video: "",
-    },
-    {
-      title: "Doodle",
-      href: "https://github.com/wolf1276/doodle-hexafalls",
-      dates: 'On-Chain Freelance Marketplace',
-      active: true,
-      description:
-        "A decentralized freelance marketplace that connects clients and creators through transparent, on-chain workflows. Doodle enables secure project agreements, milestone-based payments, and trustless collaboration powered by blockchain technology.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Solidity",
-        "Web3",
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/wolf1276/doodle-hexafalls",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/doodle-banner.png",
-      video: "",
-    },
-    {
-      title: "ZEKURA",
-      href: "https://github.com/wolf1276/ZEKURA",
-      dates: "Privacy-Preserving DeFi",
-      active: true,
-      description:
-        "A confidential decentralized exchange built on Midnight, designed to enable privacy-first trading and secure on-chain interactions. ZEKURA combines confidential smart contracts with a modern user experience to deliver a seamless DeFi platform.",
-      technologies: [
-        "Midnight",
-        "Compact",
-        "TypeScript",
-        "React",
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/wolf1276/ZEKURA",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/zekura-banner.png",
-      video: "",
-    },
-    {
-      title: "Kairos",
-      href: "https://github.com/wolf1276/kairos",
-      dates: "Autonomous Capital Management",
-      active: true,
-      description:
-        "A policy-driven autonomous capital management platform built on Stellar. Kairos allows users to automate on-chain investment strategies through configurable policies while maintaining transparency, security, and full user control.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Stellar",
-        "Soroban",
-        "Node.js",
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/wolf1276/kairos",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/kairos-banner.png",
-      video: "",
-    },
+    { title: "Raahe", href: "", dates: "Travel Companion Platform", description: "Built a full-stack travel companion platform for itinerary planning and destination discovery for 50+ test users. Developed a MongoDB-backed REST API supporting concurrent sessions, real-time recommendations, and CRUD operations. Created a mobile-first interface and reduced page load time by 30% with lazy loading and optimized API calls.", technologies: ["React.js", "Node.js", "REST APIs", "MongoDB", "Responsive CSS"], links: [] as { type: string; href: string; icon: React.ReactNode }[], image: "", video: "" },
+    { title: "URL Shortener Service", href: "", dates: "Backend Engineering", description: "Designed and deployed a URL shortening service with base-62 encoding, collision-safe unique IDs, and redirect tracking. Built a SQL-backed backend optimized for O(1) lookup, handling 1,000+ redirects in local load testing without performance degradation. Implemented collision handling and an analytics-ready architecture to support future horizontal scaling.", technologies: ["Node.js", "Express.js", "SQL", "Base-62 Encoding"], links: [] as { type: string; href: string; icon: React.ReactNode }[], image: "", video: "" },
+    { title: "Billaboost", href: "", dates: "AI-Powered Time Tracker", description: "Developed an AI-integrated productivity tool that automatically categorizes and logs work sessions, reducing manual time-tracking effort by 40%. Integrated an ML-based activity classification model for weekly productivity insights. Designed a real-time dashboard displaying tracked hours, task breakdowns, and efficiency trends.", technologies: ["Python", "AI/ML APIs", "Data Visualization", "REST"], links: [] as { type: string; href: string; icon: React.ReactNode }[], image: "", video: "" },
   ],
-  hackathons: [
-    {
-      title: "IDE Bootcamp",
-      dates: "2025",
-      location: "Ranchi",
-      win: "Finalist",
-      description:
-        "Selected as a finalist for presenting an innovative startup and technology solution during the IDE Bootcamp.",
-      image: "/ide-bootcamp.png",
-      links: [],
-    },
-    {
-      title: "IEEE YESIST12",
-      dates: "2025",
-      location: "Malaysia",
-      win: "International Finalist",
-      description:
-        "Represented the project internationally as a finalist at IEEE YESIST12, showcasing innovative engineering and technology solutions.",
-      image: "/yesist12.png",
-      links: [],
-    },
-    {
-      title: "IEEE Robotics Competition",
-      dates: "2025",
-      location: "",
-      win: "3rd Place",
-      description:
-        "Secured 3rd place by designing and presenting an engineering-focused robotics solution.",
-      image: "/ieee.png",
-      links: [],
-    },
-    {
-      title: "Axiora Robotics Track",
-      dates: "2026",
-      location: "",
-      win: "Winner",
-      description:
-        "Won the Robotics Track by designing and presenting an innovative robotics project.",
-      image: "/axiora.png",
-      links: [],
-    },
-    {
-      title: "GeeksforGeeks Classroom Hacks",
-      dates: "2026",
-      location: "",
-      win: "Winner",
-      description:
-        "Won the GeeksforGeeks Classroom Hacks competition by building an innovative software solution.",
-      image: "/gfg.svg",
-      links: [],
-    },
-    {
-      title: "Hexafalls Season 2",
-      dates: "2026",
-      location: "",
-      win: "MLH × Solana Track Winner & 3rd Place Overall",
-      description:
-        "Won the MLH × Solana sponsored track and secured 3rd place overall by developing an innovative Web3 solution during Hexafalls Season 2.",
-      image: "/hexafalls.png",
-      links: [],
-    },
+  leadership: [
+    { title: "Lead — Delegate Affairs", organization: "IEM Model United Nations (IEMMUN’26)", dates: "2026", description: "Led delegate operations for 100+ participants, managing communications, scheduling, and onboarding. Previously served as an Executive Board member at IEMMUN’25, moderating committee sessions and mentoring delegates through diplomatic debate." },
+    { title: "Core Member — Delegate Affairs", organization: "Rotary Forum of Diplomacy", dates: "2025 – Present", description: "Managed delegate relations and inter-organization communications, coordinating logistics for 80+ attendees across multiple forums." },
+    { title: "School Prefect & Captain", organization: "Auxilium Convent School", dates: "2023 – 2024", description: "Led 15 student council members, organized 8+ school events, and maintained oversight across a student body of 500+." },
+  ],
+  certifications: [
+    { title: "Cybersecurity Fundamentals", description: "DDoS mitigation, phishing defense, and system security, completed as part of the UNSW study abroad program." },
+    { title: "Diploma in Kathak Classical Dance", description: "Sustained discipline, performance under pressure, and long-term creative commitment." },
+    { title: "Diploma in Fine Arts / Drawing", description: "Visual communication skills and design sensibility applicable to UI/UX work." },
   ],
 } as const;

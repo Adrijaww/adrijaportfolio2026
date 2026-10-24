@@ -2,7 +2,7 @@ import { DATA } from "@/data/resume";
 import { slugify } from "@/lib/utils";
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://www.ahirrr.in";
+const SITE_URL = DATA.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "View Ahir Sarkar's resume and experience as a Web3 developer and CAD designer.",
+  description: "View Adrija Chatterjee's resume and experience in full-stack development, backend engineering, and AI-integrated applications.",
   alternates: { canonical: "/resume" },
 };
 

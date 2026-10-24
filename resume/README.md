@@ -1,9 +1,5 @@
 # Resume
 
-This folder contains the source LaTeX files for generating the PDF version of my resume.
+`resume.pdf` is Adrija Chatterjee’s supplied CV. Keep `public/resume.pdf` in sync when replacing it. The workflow copies this original PDF without regenerating its contents.
 
-- `resume.tex` – Main LaTeX source.
-- `resume.cls` – (Optional) custom class file if needed.
-- `assets/` – Place any images or other assets referenced by the LaTeX source.
-
-The PDF is built automatically by a GitHub Action and output to `public/resume.pdf`.
+`public/resume/page-1.png` and `page-2.png` are previews rendered directly from that PDF. Refresh them when replacing the CV; the resume page shows these images for browsers without an embedded PDF viewer.

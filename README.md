@@ -1,47 +1,5 @@
-<div align="center">
-<img alt="Portfolio" src="/me.png" width="90%">
-</div>
+# Adrija Chatterjee Portfolio
 
-# Ahir Sarkar Portfolio
+Personal portfolio built with Next.js, React, and Tailwind CSS. Profile content lives in `src/data/resume.tsx`; the supplied CV is served from `public/resume.pdf`.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
-
-# Features
-
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
-
-# Getting Started Locally
-
-1. Clone this repository to your local machine:
-
-   ```bash
-   git clone https://github.com/wolf1276/ahir-2026-portfolio
-   ```
-
-2. Move to the cloned directory
-
-   ```bash
-   cd portfolio
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-4. Start the local Server:
-
-   ```bash
-   pnpm dev
-   ```
-
-5. Open the [Config file](./src/data/resume.tsx) and make changes
-
-# License
-
-Licensed under the [MIT license](./LICENSE).
+Run `npm run dev` for development and `npm run build` for production. Set `NEXT_PUBLIC_SITE_URL` to the deployed origin for canonical URLs, sitemap, and structured metadata. It defaults to `http://localhost:3000` for local development.

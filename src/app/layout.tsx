@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.ahirrr.in"),
+  metadataBase: new URL(DATA.url),
   title: {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
@@ -43,20 +43,12 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Ahir Sarkar",
-  url: "https://www.ahirrr.in/",
-  jobTitle: "Web3 Developer and CAD Designer",
-  image: "https://www.ahirrr.in/me.png",
-  sameAs: [
-    "https://github.com/wolf1276",
-    "https://www.linkedin.com/in/ahir-sarkar/",
-    "https://x.com/ahirgrinds",
-    "https://medium.com/@ahirsarkar2022",
-  ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Institute of Engineering & Management, Kolkata",
-  },
+  name: DATA.name,
+  url: DATA.url,
+  jobTitle: DATA.role,
+  email: DATA.contact.email,
+  telephone: DATA.contact.tel,
+  alumniOf: { "@type": "CollegeOrUniversity", name: DATA.education[0].school },
 };
 
 export default function RootLayout({
