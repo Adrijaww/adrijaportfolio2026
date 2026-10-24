@@ -18,7 +18,7 @@ export const DATA = {
   description: "Adrija Chatterjee is a Computer Science Engineering undergraduate at IEM Kolkata with experience in full-stack web development, REST APIs, and AI-integrated applications.",
   introduction: "I build user-centric web applications, REST APIs, and AI-integrated tools. I'm seeking software engineering, product development, and backend engineering opportunities.",
   summary: "I'm Adrija, a _Computer Science and Engineering undergraduate at IEM Kolkata_. I enjoy building scalable, user-centric systems with full-stack web development, REST APIs, and AI integration. As a _Product Engineering Intern at IEM Research Foundation (Chrysalis)_, I shipped product features in an Agile team and translated requirements into working prototypes. A _tech immersion program at UNSW, Sydney_ broadened my experience in cybersecurity, neural networks, web development, virtual reality, and AI systems. Beyond technology, I lead delegate affairs, practice Kathak, and pursue fine arts.",
-  avatarUrl: "/avatar.svg",
+  avatarUrl: "/adrija-profile.jpg",
   skills: {
     Languages: [{ name: "C", icon: "/skills/c.svg" }, { name: "C++", icon: CppIcon }, { name: "Java", icon: Java }, { name: "Python", icon: Python }, { name: "JavaScript", icon: JavaScriptIcon }, { name: "SQL", icon: Database }, { name: "TypeScript (basic)", icon: Typescript }],
     "Web Development": [{ name: "HTML5", icon: HTML5Icon }, { name: "CSS3", icon: CSS3Icon }, { name: "React.js", icon: ReactLight }, { name: "Node.js", icon: Nodejs }, { name: "Express.js", icon: ExpressIcon }, { name: "REST APIs", icon: RESTAPIsIcon }, { name: "Responsive Design", icon: Smartphone }],
