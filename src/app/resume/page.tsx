@@ -22,7 +22,7 @@ export default function ResumePage() {
               height={2070}
               sizes="(max-width: 672px) 100vw, 672px"
               priority={page === 1}
-              className="h-auto w-full rounded-lg border bg-white"
+              className="h-auto w-full rounded-lg border bg-card"
             />
           </a>
         ))}

@@ -22,12 +22,30 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
   const shouldInvert = src.includes("stellar.png") || src.includes("midnight.png") || src.includes("builderbase.png") || src.includes("solidworks.png") || src.includes("freelance.svg");
 
+  if (src === "/unsw-logo.png") {
+    return (
+      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden flex-none bg-white">
+        <div className="relative size-full overflow-hidden">
+          <img
+            src={src}
+            alt={alt}
+            className="absolute top-0 left-1/2 w-[160%] max-w-none -translate-x-1/2"
+            loading="lazy"
+            decoding="async"
+            onError={() => setImageError(true)}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <img
       src={src}
       alt={alt}
       className={cn(
         "size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none",
+        src === "/iem-logo.png" && "p-0 bg-white",
         shouldInvert && "dark:invert-0 invert"
       )}
       loading="lazy"

@@ -22,7 +22,7 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
       width={1397}
       height={755}
       sizes="(max-width: 640px) 100vw, 400px"
-      className="w-full h-48 object-cover object-top"
+      className={cn("w-full h-48 object-cover object-top", src === "/images/raahe-cover.png" && "raahe-cover", src === "/images/url-shortener-cover.png" && "url-shortener-cover", src === "/images/billaboost-cover.png" && "billaboost-cover")}
       onError={() => setImageError(true)}
     />
   );
@@ -60,7 +60,7 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-primary hover:border-primary focus-within:ring-2 focus-within:ring-primary transition-all duration-200",
         className
       )}
     >
@@ -104,7 +104,7 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                  className="flex items-center gap-1.5 text-xs bg-primary text-primary-foreground hover:bg-primary/90"
                   variant="default"
                 >
                   {link.icon}
@@ -123,7 +123,7 @@ export function ProjectCard({
           </div>
           <Link
             href={href || "/#projects"}
-            className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            className="text-muted-foreground hover:text-primary focus-visible:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label={`View ${title} project page`}
           >
             <ArrowUpRight className="h-4 w-4" aria-hidden />

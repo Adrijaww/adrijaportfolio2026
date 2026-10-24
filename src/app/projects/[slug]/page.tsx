@@ -67,15 +67,17 @@ export default async function ProjectPage({
         </div>
 
         {project.image && (
+          <div>
           <Image
             src={project.image}
             alt={`Screenshot of ${project.title}`}
             width={1397}
             height={755}
             sizes="(max-width: 768px) 100vw, 672px"
-            className="w-full rounded-xl border object-cover"
+            className={`w-full rounded-xl border object-cover ${project.image === "/images/raahe-cover.png" ? "raahe-cover" : project.image === "/images/url-shortener-cover.png" ? "url-shortener-cover" : project.image === "/images/billaboost-cover.png" ? "billaboost-cover" : ""}`}
             priority
           />
+          </div>
         )}
 
         <section className="flex flex-col gap-3">

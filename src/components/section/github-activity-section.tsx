@@ -24,14 +24,14 @@ export default function GitHubActivitySection() {
             View GitHub<ArrowUpRight className="size-4" aria-hidden="true" />
           </span>
         </div>
-        <div className="overflow-x-auto">
+        <div className="w-full overflow-x-auto">
           <Image
-            src={`https://ghchart.rshah.org/40c463/${username}`}
+            src={`https://ghchart.rshah.org/aa96b8/${username}`}
             alt={`${username}'s GitHub contribution graph over the past year`}
             width={720}
             height={112}
             unoptimized
-            className="min-w-[680px] rounded bg-white p-3"
+            className="h-auto w-full min-w-[680px]"
           />
         </div>
       </a>

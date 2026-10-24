@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -13,6 +12,7 @@ import WorkSection from "@/components/section/work-section";
 import GitHubActivitySection from "@/components/section/github-activity-section";
 import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+import Parallax from "@/components/parallax";
 
 export const metadata: Metadata = {
   title: { absolute: `${DATA.name} | ${DATA.role}` },
@@ -27,37 +27,19 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
-      <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
-            <div className="gap-2 flex flex-col order-2 md:order-1">
-              <h1>
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl"
-                  yOffset={8}
-                  text={DATA.name}
-                />
-              </h1>
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.role}
-              />
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.introduction}
-              />
-            </div>
-            <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
-              <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover object-[50%_45%]" />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
-          </div>
+      <section id="hero" className="profile-hero" aria-labelledby="profile-name">
+        <div className="profile-hero-content">
+          <h1 id="profile-name">{DATA.name} — Full stack Developer</h1>
+          <p className="profile-role">Full-stack developer &amp; Computer Science undergraduate</p>
+          <p className="profile-introduction">{DATA.introduction}</p>
+          <div className="profile-actions"><Link href="#projects">Explore my work <span aria-hidden="true">↗</span></Link><Link href="#contact">Get in touch <span aria-hidden="true">↗</span></Link></div>
         </div>
+        <Parallax distance={24}>
+          <Avatar className="profile-portrait shrink-0 rounded-full border-8 border-border">
+            <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover object-[40%_100%] scale-125 translate-x-[10%] origin-[40%_85%]" />
+            <AvatarFallback>{DATA.initials}</AvatarFallback>
+          </Avatar>
+        </Parallax>
       </section>
       <section id="about">
         <div className="flex min-h-0 flex-col gap-y-4">
@@ -68,9 +50,7 @@ export default function Page() {
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
               <Markdown
                 components={{
-                  em: ({ node, ...props }) => (
-                    <span className="underline underline-offset-4 not-italic" {...props} />
-                  ),
+                  em: ({ children }) => <span className="underline underline-offset-4">{children}</span>,
                 }}
               >
                 {DATA.summary}
@@ -116,7 +96,7 @@ export default function Page() {
                       <img
                         src={education.logoUrl}
                         alt={education.school}
-                        className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+                        className="size-8 md:size-10 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none bg-white"
                         loading="lazy"
                         decoding="async"
                       />
@@ -132,7 +112,7 @@ export default function Page() {
                         {education.degree}
                       </div>
                       {education.description && (
-                        <div className="font-sans text-xs text-muted-foreground/80 mt-1 leading-relaxed max-w-[500px]">
+                        <div className="font-sans text-xs text-muted-foreground/80 mt-1 leading-relaxed">
                           {education.description}
                         </div>
                       )}
@@ -207,17 +187,10 @@ export default function Page() {
           </div>
         ))}
       </section>
-      <section id="contact">
+      <footer id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <ContactSection />
         </BlurFade>
-      </section>
-      {/* Footer Credits */}
-      <footer className="text-center text-xs text-muted-foreground/55 space-y-1 select-none mt-16 pb-8">
-        <p>
-          {DATA.name}
-        </p>
-        <p>&copy; {new Date().getFullYear()}. All rights reserved.</p>
       </footer>
     </main>
   );

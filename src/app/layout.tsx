@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -47,7 +46,6 @@ const personJsonLd = {
   url: DATA.url,
   jobTitle: DATA.role,
   email: DATA.contact.email,
-  telephone: DATA.contact.tel,
   alumniOf: { "@type": "CollegeOrUniversity", name: DATA.education[0].school },
 };
 
@@ -60,7 +58,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased relative",
+          "min-h-screen bg-background font-sans antialiased relative isolate",
           geist.variable,
           geistMono.variable
         )}
@@ -69,20 +67,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider delayDuration={0}>
-            <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
-              <FlickeringGrid
-                className="h-full w-full"
-                squareSize={2}
-                gridGap={2}
-                style={{
-                  maskImage: "linear-gradient(to bottom, black, transparent)",
-                  WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
-                }}
-              />
-            </div>
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+            <div className="page-grid pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
+            <div className="profile-content relative z-10 max-w-7xl mx-auto py-12 pb-24 sm:py-24 px-6 sm:px-10 lg:px-12">
               {children}
             </div>
             <Navbar />
